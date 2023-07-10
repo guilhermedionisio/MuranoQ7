@@ -1,0 +1,4 @@
+MSE for goog: 2613.10
+MSE for googl: 9778.59
+MSE for aapl: 610.37
+MSE for msft: 70.59

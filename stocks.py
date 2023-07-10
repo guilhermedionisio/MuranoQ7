@@ -1,5 +1,6 @@
 import functions
 import os
+import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
@@ -7,9 +8,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
 stocksPath = "Stocks"
-chosenStocks = ["amd", "intc", "aapl", "msft", "nvda",
-               "tsm", "orcl", "asml", "avgo", "googl"]
-predictStocks = ['goog', 'googl', 'aapl', 'msft']
+chosenStocks = ["amd", "intc","aapl", "msft", "nvda", "tsm", "orcl", "asml", "avgo", "googl"]
+predictStocks = ["goog", "googl", "aapl", "msft"]
 
 def itemA():
     movingAverageWindows = [10, 20, 50, 200]
@@ -23,7 +23,7 @@ def itemA():
         stockPath = functions.os.path.join(stocksPath, stock+".us.txt")
         stockData = pd.read_csv(stockPath)
         functions.plotMovingAverage(stockData, movingAverageWindows, stock, axs[i])
-    
+
     save_path = os.path.join("results", "itemA.png")
 
     plt.savefig(save_path)
@@ -35,15 +35,19 @@ def itemB():
     top = functions.topCorrelations(correlations, 5)
     bottom = functions.bottomCorrelations(correlations, 5)
 
-    print("Top correlations:")
-    for pair, correlation in top:
-        stockA, stockB = pair
-        print(f"{stockA.split('.')[0]} - {stockB.split('.')[0]}: Correlation = {correlation}")
+    with open("results\correlationsItemB.txt", "a") as f:
+        sys.stdout = f
+        print("Top correlations:")
+        for pair, correlation in top:
+            stockA, stockB = pair
+            print(f"{stockA.split('.')[0]} - {stockB.split('.')[0]}: Correlation = {correlation}")
 
-    print("\nBottom correlations:")
-    for pair, correlation in bottom:
-        stockA, stockB = pair
-        print(f"{stockA.split('.')[0]} - {stockA.split('.')[0]}: Correlation = {correlation}")
+        print("\nBottom correlations:")
+        for pair, correlation in bottom:
+            stockA, stockB = pair
+            print(f"{stockA.split('.')[0]} - {stockA.split('.')[0]}: Correlation = {correlation}")
+        
+        sys.stdout = sys.__stdout__
 
 def itemC():
     _, axs = plt.subplots(2, 2, figsize=(16, 10), dpi=150)
@@ -74,7 +78,10 @@ def itemC():
         axs[i].set_ylabel("Closing Price")
         axs[i].legend()
 
-        print(f"MSE for {stock}: {mse:.2f}")
+        with open("results\mseItemC.txt", "a") as f:
+            sys.stdout = f
+            print(f"MSE for {stock}: {mse:.2f}")
+            sys.stdout = sys.__stdout__
     
     save_path = os.path.join("results", "itemC.png")
 
@@ -83,6 +90,8 @@ def itemC():
     plt.close()
 
 if __name__ == "__main__":
+    itemA()
+    itemB()
     itemC()
 
 
