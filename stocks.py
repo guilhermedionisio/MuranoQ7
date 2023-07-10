@@ -26,7 +26,22 @@ def itemA():
 
     plt.close()
 
+def itemB():
+    correlations = functions.calculateCorrelations(stocksPath)
+    top = functions.topCorrelations(correlations, 5)
+    bottom = functions.bottomCorrelations(correlations, 5)
+
+    print("Top correlations:")
+    for pair, correlation in top:
+        stockA, stockB = pair
+        print(f"{stockA.split('.')[0]} - {stockB.split('.')[0]}: Correlation = {correlation}")
+
+    print("\nBottom correlations:")
+    for pair, correlation in bottom:
+        stockA, stockB = pair
+        print(f"{stockA.split('.')[0]} - {stockA.split('.')[0]}: Correlation = {correlation}")
+
 if __name__ == "__main__":
-    itemA()
+    itemB()
 
 
