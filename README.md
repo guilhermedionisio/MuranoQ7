@@ -44,8 +44,7 @@ Foram escolhidos 100 elementos da pasta Stocks e foi calculada a correlação en
 
 `correlationsItemB.txt`: Arquivo com as maiores e menores correlações entre o preço de fechamento de algumas ações.
 
-<center>
-Top correlations:
+Top 5 Correlações Positivas:
 
 | Stock Pair | Correlation |
 |------------|-------------|
@@ -55,7 +54,7 @@ Top correlations:
 | aed - afc |  0.989 |
 | afsd - agiil | 0.982 |
 
-Bottom correlations:
+Top 5 Correlações Negativas:
 
 | Stock Pair | Correlation |
 |------------|-------------|
@@ -64,7 +63,6 @@ Bottom correlations:
 | aemd - afc |  -0.918 |
 | aeis - aemd | -0.917|
 | aemd - agm | -0.917 |
-</center>
 
 Fica evidente pelos Tickers que as maiores correlações ocorrem em ações da mesma empresa/organização que é um resultado esperado dado que, elas representam ativos iguais ou similares. Não consegui encontrar relações entre as ações com correlações inversas porém, é interessante notar que a ação AEMD, uma empresa do setor da saúde,  aparece em 4 das 5 linhas indicando que ela, provavelmente, em um momento de crescimento significativo de um setor específico do mercado teve quedas significativas. Essa suposição partiu do fato de que as ações AEE, AEIS e AFC são de empresas do setor de energia.
 
@@ -76,15 +74,11 @@ Foram escolhidas 4 ações para treinar um modelo de Regressão Lienar e avaliar
 
 ![Previsão do Preço por meio de Regressão Linear](results/itemC.png)
 
-<center>
-
 | Tickers | MSE      |
 |---------|----------|
 | goog    | 2613.10  |
 | googl   | 9778.59  |
 | aapl    | 610.37   |
 | msft    | 70.59    |
-
-</center>
 
 É possível perceber que o modelo de Regressão Linear é incapaz de modelar o comportamento do preço de uma ação porém, ele serve como um indicativo simples da tendência de longo prazo do preço. Comparar os valores de MSE diretamente nesse caso não é o ideal dado que, os preços das ações estão em ordens de grandeza diferentes porém, é evidente através do gráfico que o erro seria significativo porque uma reta é incapaz de representar as variações dos preços.
