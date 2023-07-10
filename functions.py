@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 import seaborn as sns
-import matplotlib as plt
 
 # ----------------- ITEM A ---------------------- #
 def movingAverage(data, window):
