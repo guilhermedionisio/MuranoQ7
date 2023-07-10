@@ -47,7 +47,7 @@ def itemB():
         print("\nBottom correlations:")
         for pair, correlation in bottom:
             stockA, stockB = pair
-            print(f"{stockA.split('.')[0]} - {stockA.split('.')[0]}: Correlation = {correlation}")
+            print(f"{stockA.split('.')[0]} - {stockB.split('.')[0]}: Correlation = {correlation}")
         
         sys.stdout = sys.__stdout__
 

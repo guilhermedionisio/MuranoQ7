@@ -6,8 +6,8 @@ aed - afc: Correlation = 0.9891247647295022
 afsd - agiil: Correlation = 0.982330421449627
 
 Bottom correlations:
-adro - adro: Correlation = -0.9259423631446959
-aee - aee: Correlation = -0.9180037623473484
-aemd - aemd: Correlation = -0.9177670716223516
-aeis - aeis: Correlation = -0.9171185347269426
-aemd - aemd: Correlation = -0.9170690620704668
+adro - agncn: Correlation = -0.9259423631446959
+aee - aemd: Correlation = -0.9180037623473484
+aemd - afc: Correlation = -0.9177670716223516
+aeis - aemd: Correlation = -0.9171185347269426
+aemd - agm: Correlation = -0.9170690620704668
