@@ -26,6 +26,8 @@ def itemA():
 
     save_path = os.path.join("results", "itemA.png")
 
+    plt.tight_layout()
+
     plt.savefig(save_path)
 
     plt.close()
@@ -84,6 +86,8 @@ def itemC():
             sys.stdout = sys.__stdout__
     
     save_path = os.path.join("results", "itemC.png")
+
+    plt.tight_layout()
 
     plt.savefig(save_path)
 
